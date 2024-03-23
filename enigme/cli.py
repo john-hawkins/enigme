@@ -51,6 +51,7 @@ def main():
    print()
    print("Press a key when you are ready to continue and see the answer...")
    print()
+   input()
    answer_str = get_structure_print_string([str4], 4)
    print(answer_str)
 
