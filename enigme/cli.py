@@ -11,7 +11,9 @@ import os
 """
 
 from enigme import __version__
-
+from .gridbased import generate_rotation_puzzle
+from .gridbased import get_structure_print_string
+ 
 ##########################################################################################
 def print_usage(prog):
     """ Command line application usage instrutions. """
@@ -40,6 +42,19 @@ def main():
        print_usage("enigme")
        exit(1)
 
+   str1, str2, str3, str4 = generate_rotation_puzzle()
+
+   print()
+   print("Below you will see 3 patterns that form a sequence. Write down the expected 4th pattern in the sequence.")
+   puzzle_str = get_structure_print_string([str1, str2, str3])
+   print(puzzle_str) 
+   print()
+   print("Press a key when you are ready to continue and see the answer...")
+   print()
+   answer_str = get_structure_print_string([str4], 4)
+   print(answer_str)
+
+ 
 ##########################################################################################
 if __name__ == '__main__':
     main()
