@@ -65,6 +65,7 @@ def structure_print_string(str1, str2, str3):
         output += indent_spacer + out1 + spacer + out2 + spacer + out3 + "\n"
     return output
 
+
 ###################################################################
 def get_structure_print_string(structs: list[np.array], index_start=1):
     """
