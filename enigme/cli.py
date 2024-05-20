@@ -11,6 +11,8 @@ import os
 """
 
 from enigme import __version__
+from .gridbased import generate_fraction_puzzle
+from .gridbased import grid_print_string
 from .gridbased import generate_rotation_puzzle
 from .seqbased import generate_sequence_puzzle
 from .gridbased import get_structure_print_string
@@ -69,13 +71,20 @@ def print_grid_puzzle():
 
 ##########################################################################################
 def print_frac_puzzle():
+   fore, str1, numer, denom = generate_fraction_puzzle()
    print()
-   print("What is the fraction of X characters in this shape?")
+   print(f"What fraction of the chracaters in this grid are {fore}?")
    print()
-   print("   O O O X O O")
-   print("   O O O X O O")
-   print("   O O O X O O")
-   print("   X O O X O X")
+   print(grid_print_string(str1))
+   print()
+   print("Press a key when you are ready to continue and see the answer...")
+   input()
+   answer_str = f"Answer:  {numer}/{denom}"
+   print(answer_str)
+   #print("   O O O X O O")
+   #print("   O O O X O O")
+   #print("   O O O X O O")
+   #print("   X O O X O X")
 
 
 ##########################################################################################

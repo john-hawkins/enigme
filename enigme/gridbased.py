@@ -5,8 +5,32 @@ chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890&%$#@"
 
 def get_char():
    char_index = random.randint(1, len(chars)-1)
-   char = chars[char_index]
-   return char
+   return chars[char_index]
+
+backchars = "_.,-:'-"
+
+def get_backchar():
+   char_index = random.randint(1, len(backchars)-1)
+   return  backchars[char_index]
+
+###################################################################
+def generate_fraction_puzzle():
+    back_char = get_backchar()
+    fore_char = get_char()
+    width = random.randint(4,5)
+    height = random.randint(3,5)
+    structure_1 = np.full((height, width), back_char)
+    prob_of_fore = random.randint(20,70)/100
+    denom = width * height
+    numerator = 0
+    for i in range(0, height):
+        for j in range(0, width):
+            temp = random.random()
+            if temp<prob_of_fore:
+                structure_1[i,j] = fore_char
+                numerator += 1
+    return fore_char, structure_1, numerator, denom
+
 
 ###################################################################
 def generate_rotation_puzzle():
@@ -43,6 +67,20 @@ def get_out_str(row_data):
 ###################################################################
 def get_separator(side_length):
     return "-"*(side_length*2+1)
+
+
+###################################################################
+def grid_print_string(str_in, indent=5):
+    """
+    Create a print string for a grid of chars
+    """
+    output = ""
+    indent_spacer = " " * indent
+    rows = str_in.shape[0]
+    for row in range(0,rows):
+        out1 =  " ".join(str_in[row,:])
+        output += indent_spacer + out1 + "\n"
+    return output
 
 ###################################################################
 def structure_print_string(str1, str2, str3):
