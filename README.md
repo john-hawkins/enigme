@@ -12,3 +12,4 @@ Some CLI parameters allow for generating from restricted complexty sets. These
 are used when experimenting with complexity thresholds that affect both human
 and machine performance on these tasks.
 
+Adding multiple modes
