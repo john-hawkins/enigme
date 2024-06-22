@@ -15,6 +15,7 @@ from .gridbased import generate_fraction_puzzle
 from .gridbased import grid_print_string
 from .gridbased import generate_rotation_puzzle
 from .seqbased import generate_sequence_puzzle
+from .seqbased import generate_2d_physics_puzzle
 from .gridbased import get_structure_print_string
  
 ##########################################################################################
@@ -34,7 +35,7 @@ def main():
    parser = argparse.ArgumentParser()
    parser.add_argument('-v', '--version', help='Print Version', action='store_true')
    parser.add_argument('-u', '--usage', help='More detailed usage information', action='store_true')
-   parser.add_argument('puzzle')
+   parser.add_argument('puzzle', help='Puzzle class: [ frac | 1d | 2d | 3d ]')
 
    args = parser.parse_args()
 
@@ -93,14 +94,14 @@ def print_seq_puzzle():
    print()
    print("Below you will see 3 strings of characters that form a pattern. What is the next pattern in the sequence?")
    print()
-   print("    " + ("".join(str1)) )
-   print("    " + ("".join(str2)) )
-   print("    " + ("".join(str3)) )
+   print("    |" + ("".join(str1)) + "|")
+   print("    |" + ("".join(str2)) + "|")
+   print("    |" + ("".join(str3)) + "|")
    print("    ")
    print("Press a key when you are ready to continue and see the answer...")
    print()
    input()
-   print("    " + ("".join(str4)) )
+   print("    |" + ("".join(str4)) + "|" )
 
 
 
