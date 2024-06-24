@@ -53,7 +53,8 @@ def main():
        print_seq_puzzle()
    if args.puzzle=='2d':
        print_grid_puzzle()
-
+   if args.puzzle=='phys':
+       print_2d_physics_puzzle()
 
 
 ##########################################################################################
@@ -94,15 +95,36 @@ def print_seq_puzzle():
    print()
    print("Below you will see 3 strings of characters that form a pattern. What is the next pattern in the sequence?")
    print()
-   print("    |" + ("".join(str1)) + "|")
-   print("    |" + ("".join(str2)) + "|")
-   print("    |" + ("".join(str3)) + "|")
-   print("    ")
+   print("1.    |" + ("".join(str1)) + "|")
+   print()
+   print("2.    |" + ("".join(str2)) + "|")
+   print()
+   print("3.    |" + ("".join(str3)) + "|")
+   print()
    print("Press a key when you are ready to continue and see the answer...")
    print()
    input()
-   print("    |" + ("".join(str4)) + "|" )
+   print("      |" + ("".join(str4)) + "|" )
 
+
+##########################################################################################
+def print_2d_physics_puzzle():
+   str1, str2, str3, str4, str5 = generate_2d_physics_puzzle()
+   print()
+   print("Below you will see 4 strings of characters that represent physical objects moving in an enironment. Can you analyse the movement and determine the next pattern in the sequence?")
+   print()
+   print("1.    |" + ("".join(str1)) + "|")
+   print()
+   print("2.    |" + ("".join(str2)) + "|")
+   print()
+   print("3.    |" + ("".join(str3)) + "|")
+   print()
+   print("4.    |" + ("".join(str4)) + "|")
+   print()
+   print("Press a key when you are ready to continue and see the answer...")
+   print()
+   input()
+   print("      |" + ("".join(str5)) + "|" )
 
 
 ##########################################################################################
