@@ -42,6 +42,7 @@ def generate_2d_physics_puzzle():
     forward = (random.uniform(0,1) <= 0.6)
     direc = np.where(forward, 1, -1)
     variable = (random.uniform(0,1) <= 0.6)
+    rebound = (random.uniform(0,1) <= 0.6)
     if increment<3:
         variable=False
     positions = [start_pos]*5
@@ -54,10 +55,18 @@ def generate_2d_physics_puzzle():
         starter = positions[i-1]
         changer = direc * increment
         new_pos = starter + changer
-        if (new_pos < 0):
-            new_pos = length + new_pos - 1
-        if (new_pos >= length):
-            new_pos = (new_pos-length)
+        if rebound:
+            if (new_pos < 0):
+                new_pos = 0 - new_pos
+                direc = 1
+            if (new_pos > (length-pat_len)):
+                new_pos = length - (new_pos-(length-pat_len))
+                direc = -1
+        else:
+            if (new_pos < 0):
+                new_pos = length + new_pos - 1
+            if (new_pos >= length):
+                new_pos = (new_pos-length)
         positions[i] = new_pos
         for p in range(0, pat_len):
             if (new_pos+p)<length:
