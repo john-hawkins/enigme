@@ -5,7 +5,7 @@ chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890&%$#@"
 
 phys_chars = "0IOo-=><Xx"
 
-back_chars = ".,_ "
+back_chars = ".,_'`"
 
 def get_char(back_char):
    char_index = random.randint(1, len(chars))
