@@ -15,12 +15,14 @@ from .gridbased import generate_fraction_puzzle
 from .gridbased import grid_print_string
 from .gridbased import generate_rotation_puzzle
 from .seqbased import generate_sequence_puzzle
+
 from .seqbased import generate_2d_physics_puzzle
 from .gridbased import get_structure_print_string
 from .physics_puzzle_3d import generate_3d_physics_puzzle
 from .seq_puzzle_3d import generate_3d_seq_puzzle
 from .numeric_puzzles import generate_1d_numeric_text_puzzle
-
+from .numeric_puzzles import generate_1d_numeric_text_puzzle_v2
+ 
 ##########################################################################################
 def print_usage(prog):
     """ Command line application usage instructions. """
@@ -75,7 +77,7 @@ def main():
          print_3d_seq_puzzle()
 
 def print_1d_numeric_puzzle():
-   text, answer = generate_1d_numeric_text_puzzle()
+   text, answer = generate_1d_numeric_text_puzzle_v2()
    print()
    print(text)
    print()
