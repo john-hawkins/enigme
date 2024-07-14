@@ -22,7 +22,8 @@ from .physics_puzzle_3d import generate_3d_physics_puzzle
 from .seq_puzzle_3d import generate_3d_seq_puzzle
 from .numeric_puzzles import generate_1d_numeric_text_puzzle
 from .numeric_puzzles import generate_1d_numeric_text_puzzle_v2
- 
+from .numeric_puzzles import generate_2d_numeric_text_puzzle
+
 ##########################################################################################
 def print_usage(prog):
     """ Command line application usage instructions. """
@@ -58,7 +59,8 @@ def main():
       if args.dimension=='1d':
          print_1d_numeric_puzzle()
       if args.dimension=='2d':
-         print_frac_puzzle()
+         #print_frac_puzzle()
+         print_2d_numeric_puzzle()
       if args.dimension=='3d':
          print("Not Available")
    if args.puzzle=='physics':
@@ -71,7 +73,7 @@ def main():
    if args.puzzle=='sequence':
       if args.dimension=='1d':
          print_seq_puzzle()
-      if args.dimension=='2d':
+      if args.dimension=='2dc':
          print_grid_puzzle()
       if args.dimension=='3d':
          print_3d_seq_puzzle()
@@ -85,6 +87,18 @@ def print_1d_numeric_puzzle():
    print()
    input()
    print(answer)
+
+def print_2d_numeric_puzzle():
+   text, answer = generate_2d_numeric_text_puzzle()
+   print()
+   print(text)
+   print()
+   print("Press a key when you are ready to continue and see the answer...")
+   print()
+   input()
+   print(answer)
+
+
 
 ##########################################################################################
 def print_grid_puzzle():

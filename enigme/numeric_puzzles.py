@@ -12,8 +12,14 @@ def get_char():
 
 ###################################################################
 def generate_1d_numeric_text_puzzle():
+    """
+    First numeric puzzle that is designed to illustrate how well an agent can use language
+    as simultaneously the source of semantics, as well as a set of abstract entities which
+    need to be reasoned about numerically.
+    """
     char = get_char()
-    text_content = "In this block of text you will find an additional character inserted into some of the words to replace a letter. The position of this character within each word determines its numeric value, these numbers are digits in a sequence that forms a larger number. Write that number below."
+    text_content = get_1d_numeric_text_puzzle_text()
+# "In this block of text you will find an additional character inserted into some of the words to replace a letter. The position of this character within each word determines its numeric value, these numbers are digits in a sequence that forms a larger number. Write that number below."
     wds = text_content.split(" ")
     index = random.randint(0,int(len(wds)/3))
     answer = ""
@@ -30,7 +36,15 @@ def generate_1d_numeric_text_puzzle():
             index = random.randint(index+1,len(wds)-1)
     return " ".join(wds), answer
  
+
 def generate_1d_numeric_text_puzzle_v2():
+    """
+    A variation numeric puzzle that is designed to illustrate how well an agent can use language
+    as simultaneously the source of semantics, as well as a set of abstract entities which
+    need to be reasoned about numerically. This version introduces the additional complexity
+    of needing to understand and maintain a mental model of the mapping between characters 
+    and numbers.
+    """
     char = get_char()
     text_content = "In this block of text you will find an additional character inserted into some of the words to replace a letter. Each letter has a numeric value coming from its position in the alphabet, letter a is one, letter b is two, etc. Add each of these number together to get the final number. Write that number below."
     wds = text_content.split(" ")
@@ -52,3 +66,64 @@ def generate_1d_numeric_text_puzzle_v2():
     return " ".join(wds), answer
 
 
+def get_1d_numeric_text_puzzle_text():
+    """
+    Function for creating subtle variations of the puzzle text content so that the problem
+    space is increased while the semantics remain the same.
+    """
+    variations = {
+        "VAR1":["your will find", "there is", "you will see"],
+        "VAR2":["inserted into some of", "inserted inside some of", "placed within some of"],
+        "VAR3":["replace a letter", "replace one of the letters", "substitute for a letter"],
+        "VAR4":["position", "location"],
+        "VAR5":["determines", "defines", "reveals"],
+        "VAR6":["digits", "numerals"],    
+    }   
+    text_content = "In this block of text <VAR1> an additional character <VAR2> the words to <VAR3>. The <VAR4> of this character within each word <VAR5> its numeric value. These numbers are <VAR6> in a sequence that forms a larger number. Write that number below."
+    for key in variations.keys():
+        subs = variations[key]
+        index = random.randint(0, len(subs)-1)
+        subbie = subs[index]
+        target = "<" + key + ">"
+        text_content = text_content.replace(target, subbie)
+    return text_content
+
+
+#############################################################################
+def generate_2d_numeric_text_puzzle():
+    char = get_char()
+    text_content = get_2d_numeric_text_puzzle_text()
+    wds = text_content.split(" ")
+    index = random.randint(0,len(wds)-1)
+    answer = ""
+    word = wds[index]
+    letter_index = random.randint(0,len(word)-1)
+    new_word = word[0:letter_index] + char + word[letter_index+1:]
+    answer = (index+1) - (letter_index+1)
+    answer = str(answer)
+    wds[index] = new_word
+    return " ".join(wds), answer
+
+
+
+def get_2d_numeric_text_puzzle_text():
+    """
+    Function for creating subtle variations of the puzzle text content so that the problem
+    space is increased while the semantics remain the same.
+    """
+    variations = {
+        "VAR1":["your will find", "there is", "you will see"],
+        "VAR2":["inserted into", "inserted inside", "placed within"],
+        "VAR3":["replace a letter", "replace one of the letters", "substitute for a letter"],
+        "VAR4":["position", "location"],
+        "VAR5":["determine", "define", "reveal"],
+        "VAR6":["derived", "determined"],
+    }
+    text_content = "In this block of text <VAR1> an additional character <VAR2> one of the words to <VAR3>. The <VAR4> of this character will <VAR5> two numerical values. The first value is <VAR6> from the number of the word within the sequence of words in this paragraph, where the first word has value one, the second word value two, etc. The second value comes from the position of the character within the word, if it replaces the first letter it has value one, the second letter value two, etc. You need to subtract the second number from the first and then write the resulting number below."
+    for key in variations.keys():
+        subs = variations[key]
+        index = random.randint(0, len(subs)-1)
+        subbie = subs[index]
+        target = "<" + key + ">"
+        text_content = text_content.replace(target, subbie)
+    return text_content
