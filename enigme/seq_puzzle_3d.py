@@ -12,8 +12,8 @@ def get_char():
 ###################################################################
 def generate_3d_seq_puzzle():
     back_char = " "
-    pat_len = random.randint(9,14)
-    length = random.randint(pat_len-6,pat_len-3)
+    pat_len = random.randint(11,19)
+    length = random.randint(pat_len-8,pat_len-5)
     structure_1 = np.full((length), back_char)
     structure_2 = np.full((length), back_char)
     structure_3 = np.full((length), back_char)
@@ -42,6 +42,6 @@ def generate_3d_seq_puzzle():
     answer = pattern
     for i in range(0, pat_len):
         if shown[i]==0:
-            answer[i] = "?"
+            answer = answer[0:i] + "?" + answer[i+1:]
     return pattern, [structure_1, structure_2, structure_3], answer 
 

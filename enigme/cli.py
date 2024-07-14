@@ -73,7 +73,7 @@ def main():
    if args.puzzle=='sequence':
       if args.dimension=='1d':
          print_seq_puzzle()
-      if args.dimension=='2dc':
+      if args.dimension=='2d':
          print_grid_puzzle()
       if args.dimension=='3d':
          print_3d_seq_puzzle()
@@ -149,7 +149,7 @@ def print_seq_puzzle():
 def print_3d_seq_puzzle():
    pattern, structs, answer = generate_3d_seq_puzzle()
    print()
-   print("You are looking at a machine something like a slot machine. There is a sequence of characters printed onto the ege of a drum that spins inside the machine. You can only see a small window of this sequnce after every spin, but you know the whole pattern is {len(answer)} long. Below you will see the sequence of characters visible in the window after the first 3 spins. Write out the sequence as you can, using the ? character where you are not sure. Use the first visible sequence as the starting point.")
+   print(f"You are looking at a machine something like a slot machine. There is a sequence of characters printed onto the ege of a drum that spins inside the machine. You can only see a small window of this sequnce after every spin, but you know the whole pattern is {len(answer)} long. Below you will see the sequence of characters visible in the window after the first 3 spins. Write out the sequence as you can, using the ? character where you are not sure. Use the first visible sequence as the starting point.")
    print()
    print("1.    |" + ("".join(structs[0])) + "|")
    print()
