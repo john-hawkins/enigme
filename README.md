@@ -1,4 +1,4 @@
-# enigme
+![enigme](./images/logo.png "enigme")
 
 Text based Puzzle Generators for AI Research
 
