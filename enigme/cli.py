@@ -1,6 +1,7 @@
-import argparse
 import pandas as pd
 import numpy as np
+import argparse
+import textwrap 
 import sys
 import os
 
@@ -78,10 +79,15 @@ def main():
       if args.dimension=='3d':
          print_3d_seq_puzzle()
 
+def print_clean_cli_text(toprint):
+   wrapper = textwrap.TextWrapper(width=70)
+   string = wrapper.fill(text=toprint) 
+   print(string)
+
 def print_1d_numeric_puzzle():
    text, answer = generate_1d_numeric_text_puzzle_v2()
    print()
-   print(text)
+   print_clean_cli_text(text)
    print()
    print("Press a key when you are ready to continue and see the answer...")
    print()
@@ -91,7 +97,7 @@ def print_1d_numeric_puzzle():
 def print_2d_numeric_puzzle():
    text, answer = generate_2d_numeric_text_puzzle()
    print()
-   print(text)
+   print_clean_cli_text(text)
    print()
    print("Press a key when you are ready to continue and see the answer...")
    print()
@@ -104,7 +110,7 @@ def print_2d_numeric_puzzle():
 def print_grid_puzzle():
    str1, str2, str3, str4 = generate_rotation_puzzle()
    print()
-   print("Below you will see 3 patterns that form a sequence. Write down the expected 4th pattern in the sequence.")
+   print_clean_cli_text("Below you will see 3 patterns that form a sequence. Write down the expected 4th pattern in the sequence.")
    puzzle_str = get_structure_print_string([str1, str2, str3])
    print(puzzle_str) 
    print()
@@ -132,7 +138,7 @@ def print_frac_puzzle():
 def print_seq_puzzle():
    str1, str2, str3, str4 = generate_sequence_puzzle()
    print()
-   print("Below you will see 3 strings of characters that form a pattern. What is the next pattern in the sequence?")
+   print_clean_cli_text("Below you will see 3 strings of characters that form a pattern. What is the next pattern in the sequence?")
    print()
    print("1.    |" + ("".join(str1)) + "|")
    print()
@@ -149,7 +155,7 @@ def print_seq_puzzle():
 def print_3d_seq_puzzle():
    pattern, structs, answer = generate_3d_seq_puzzle()
    print()
-   print(f"You are looking at a machine something like a slot machine. There is a sequence of characters printed onto the ege of a drum that spins inside the machine. You can only see a small window of this sequnce after every spin, but you know the whole pattern is {len(answer)} long. Below you will see the sequence of characters visible in the window after the first 3 spins. Write out the sequence as you can, using the ? character where you are not sure. Use the first visible sequence as the starting point.")
+   print_clean_cli_text(f"You are looking at a machine something like a slot machine. There is a sequence of characters printed onto the ege of a drum that spins inside the machine. You can only see a small window of this sequnce after every spin, but you know the whole pattern is {len(answer)} long. Below you will see the sequence of characters visible in the window after the first 3 spins. Write out the sequence as you can, using the ? character where you are not sure. Use the first visible sequence as the starting point.")
    print()
    print("1.    |" + ("".join(structs[0])) + "|")
    print()
@@ -166,7 +172,7 @@ def print_3d_seq_puzzle():
 def print_3d_physics_puzzle():
    object, structures = generate_3d_physics_puzzle()
    print()
-   print(f"You are hold a see through cube. There is an object inside the cube moving around with constant velocity and without losing momentum. Below you a sequence of grids. Each sequence of three represents 3 faces of the cube where you can see the object {object}. As the object moves its location insie the cube changes. It will bounce off the walls of the cube whenever it hits one of the edges. Draw the final set of three faces you would see after the next movement of the object.")
+   print_clean_cli_text(f"You are hold a see through cube. There is an object inside the cube moving around with constant velocity and without losing momentum. Below you a sequence of grids. Each sequence of three represents 3 faces of the cube where you can see the object {object}. As the object moves its location insie the cube changes. It will bounce off the walls of the cube whenever it hits one of the edges. Draw the final set of three faces you would see after the next movement of the object.")
    print()
    for i in range(len(structures)-1):
       struct = structures[i]
@@ -186,7 +192,7 @@ def print_3d_physics_puzzle():
 def print_2d_physics_puzzle():
    str1, str2, str3, str4, str5 = generate_2d_physics_puzzle()
    print()
-   print("Below you will see 4 strings of characters that represent physical objects moving in an enironment. Can you analyse the movement and determine the next pattern in the sequence?")
+   print_clean_cli_text("Below you will see 4 strings of characters that represent physical objects moving in an enironment. Can you analyse the movement and determine the next pattern in the sequence?")
    print()
    print("1.    |" + ("".join(str1)) + "|")
    print()

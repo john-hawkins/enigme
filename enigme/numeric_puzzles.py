@@ -12,14 +12,14 @@ def get_char():
 
 ###################################################################
 def generate_1d_numeric_text_puzzle():
-    """
-    First numeric puzzle that is designed to illustrate how well an agent can use language
-    as simultaneously the source of semantics, as well as a set of abstract entities which
+    """ 
+    First numeric puzzle is designed to test how well an agent can use language
+    as simultaneously the source of puzzle semantics, 
+    as well as a set of abstract entities which
     need to be reasoned about numerically.
     """
     char = get_char()
     text_content = get_1d_numeric_text_puzzle_text()
-# "In this block of text you will find an additional character inserted into some of the words to replace a letter. The position of this character within each word determines its numeric value, these numbers are digits in a sequence that forms a larger number. Write that number below."
     wds = text_content.split(" ")
     index = random.randint(0,int(len(wds)/3))
     answer = ""
@@ -27,6 +27,8 @@ def generate_1d_numeric_text_puzzle():
     while not complete:
         word = wds[index]
         letter_index = random.randint(0,len(word)-1)
+        while not word[letter_index].isalnum():
+            letter_index = random.randint(0,len(word)-1)
         new_word = word[0:letter_index] + char + word[letter_index+1:]
         answer += str(letter_index+1)
         wds[index] = new_word
@@ -79,7 +81,7 @@ def get_1d_numeric_text_puzzle_text():
         "VAR5":["determines", "defines", "reveals"],
         "VAR6":["digits", "numerals"],    
     }   
-    text_content = "In this block of text <VAR1> an additional character <VAR2> the words to <VAR3>. The <VAR4> of this character within each word <VAR5> its numeric value. These numbers are <VAR6> in a sequence that forms a larger number. Write that number below."
+    text_content = "In this block of text <VAR1> a non-alphabetic character <VAR2> the words to <VAR3>. The <VAR4> of this character within each word <VAR5> its numeric value. These numbers are <VAR6> in a sequence that forms a larger number. Write that number below."
     for key in variations.keys():
         subs = variations[key]
         index = random.randint(0, len(subs)-1)
