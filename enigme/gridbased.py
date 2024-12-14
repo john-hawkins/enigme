@@ -38,12 +38,14 @@ def generate_rotation_puzzle():
     side_length = random.randint(2,4)
     structure_1 = np.full((side_length, side_length), back_char)
     prob_of_fore = random.randint(20,80)/100
-    for i in range(0, side_length):
-        for j in range(0, side_length):
-            temp = random.random()
-            if temp<prob_of_fore:
-                structure_1[i,j] = get_char()
-
+    empty = True
+    while empty:
+        for i in range(0, side_length):
+            for j in range(0, side_length):
+                temp = random.random()
+                if temp<prob_of_fore:
+                    structure_1[i,j] = get_char()
+                    empty = False
     reverse = (random.random() < 0.5)
     structure_2 = np.rot90(structure_1)
     structure_3 = np.rot90(structure_2)
@@ -59,7 +61,8 @@ def get_out_str(row_data):
     out = "|"
     for i in range(0, len(row_data)):
         if i>0:
-            out = out + "|-|"
+            #out = out + "|-|"
+            out = out + "|"
         out = out + row_data[i]
     out = out + "|"
     return out

@@ -114,7 +114,7 @@ def print_grid_puzzle():
    puzzle_str = get_structure_print_string([str1, str2, str3])
    print(puzzle_str) 
    print()
-   print("Press a key when you are ready to continue and see the answer...")
+   print("Press enter when you are ready to continue and see the answer...")
    print()
    input()
    answer_str = get_structure_print_string([str4], 4)
