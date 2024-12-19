@@ -1,13 +1,15 @@
 import numpy as np
 import random
 
-chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890&%$#@"
+#chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890&%$#@"
+
+chars = "~_<>{}ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()"
 
 def get_char():
    char_index = random.randint(1, len(chars)-1)
    return chars[char_index]
 
-backchars = "_.,-:'-"
+backchars = " .,'-"
 
 def get_backchar():
    char_index = random.randint(1, len(backchars)-1)
@@ -34,8 +36,8 @@ def generate_fraction_puzzle():
 
 ###################################################################
 def generate_rotation_puzzle():
-    back_char = " "
-    side_length = random.randint(2,4)
+    back_char = get_backchar()
+    side_length = random.randint(2,6)
     structure_1 = np.full((side_length, side_length), back_char)
     prob_of_fore = random.randint(20,80)/100
     empty = True
