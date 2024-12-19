@@ -1,7 +1,7 @@
 import numpy as np
 import random
 
-chars = "_-!*{}()ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890&%$#@"
+chars = "~_-<>{}ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()"
 
 def get_char():
    char_index = random.randint(1, len(chars)-1)
