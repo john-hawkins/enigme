@@ -34,6 +34,7 @@ def print_usage(prog):
     print("   <DIMENSION>         - PUZZLE CLASS [ 1d | 2d | 3d ]")
     print("   [OPTIONS]")
     print("      -v, --version    - Print version")
+    print("      -u, --usage      - Print detailed usage info")
     print("      -h, --help       - Get command help")
     print("")
 
@@ -64,6 +65,7 @@ def main():
          print_2d_numeric_puzzle()
       if args.dimension=='3d':
          print("Not Available")
+
    if args.puzzle=='physics':
       if args.dimension=='1d':
          print_seq_puzzle()
@@ -71,6 +73,7 @@ def main():
          print_2d_physics_puzzle()
       if args.dimension=='3d':
          print_3d_physics_puzzle()
+
    if args.puzzle=='sequence':
       if args.dimension=='1d':
          print_seq_puzzle()
