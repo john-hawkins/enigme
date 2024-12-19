@@ -129,3 +129,16 @@ def get_2d_numeric_text_puzzle_text():
         target = "<" + key + ">"
         text_content = text_content.replace(target, subbie)
     return text_content
+
+
+#############################################################################
+def generate_3d_numeric_text_puzzle():
+    """
+    Extension of the above framework, but we now replace characters in three different words
+    the instructions are to use the word position of the first, the letter position of the
+    second and the alphabetic position of the third. We then combine them with either a series
+    of addition subtraction or multiplication operations.
+    """
+
+    return "", ""
+
