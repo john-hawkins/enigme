@@ -24,6 +24,7 @@ from .seq_puzzle_3d import generate_3d_seq_puzzle
 from .numeric_puzzles import generate_1d_numeric_text_puzzle
 from .numeric_puzzles import generate_1d_numeric_text_puzzle_v2
 from .numeric_puzzles import generate_2d_numeric_text_puzzle
+from .numeric_puzzles import generate_3d_numeric_text_puzzle
 
 ##########################################################################################
 def print_usage(prog):
@@ -61,10 +62,9 @@ def main():
       if args.dimension=='1d':
          print_1d_numeric_puzzle()
       if args.dimension=='2d':
-         #print_frac_puzzle()
          print_2d_numeric_puzzle()
       if args.dimension=='3d':
-         print("Not Available")
+         print_3d_numeric_puzzle()
 
    if args.puzzle=='physics':
       if args.dimension=='1d':
@@ -87,6 +87,7 @@ def print_clean_cli_text(toprint):
    string = wrapper.fill(text=toprint) 
    print(string)
 
+
 def print_1d_numeric_puzzle():
    text, answer = generate_1d_numeric_text_puzzle_v2()
    print()
@@ -97,8 +98,20 @@ def print_1d_numeric_puzzle():
    input()
    print(answer)
 
+
 def print_2d_numeric_puzzle():
    text, answer = generate_2d_numeric_text_puzzle()
+   print()
+   print_clean_cli_text(text)
+   print()
+   print("Press a key when you are ready to continue and see the answer...")
+   print()
+   input()
+   print(answer)
+
+
+def print_3d_numeric_puzzle():
+   text, answer = generate_3d_numeric_text_puzzle()
    print()
    print_clean_cli_text(text)
    print()
