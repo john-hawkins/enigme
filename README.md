@@ -21,7 +21,7 @@ and machine performance on these tasks.
 ## Usage
 
 
-## Citation
+## Citations
 
 ```bibtex
 @article{hawkins:2025,
@@ -32,3 +32,11 @@ and machine performance on these tasks.
 }
 ```
 
+```bibtex
+@article{hawkins:2025,
+  author = {John Hawkins},
+  title = {Enigme: Generative Text Puzzles for Evaluating Reasoning in Language Models}
+  year = {2025},
+  month = {02},
+}
+```
