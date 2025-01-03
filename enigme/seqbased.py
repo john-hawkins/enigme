@@ -27,7 +27,7 @@ def get_phys_char(back_char):
 ###################################################################
 def generate_2d_physics_puzzle():
     back_char = get_back_char()
-    pat_len = random.randint(1,3)
+    pat_len = random.randint(1,4)
     length = random.randint(pat_len+9,23)
     structure_1 = np.full((length), back_char)
     structure_2 = np.full((length), back_char)

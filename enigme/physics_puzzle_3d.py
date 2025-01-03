@@ -27,7 +27,7 @@ def get_structures(x_pos, y_pos, z_pos, side_length, back_char, piece):
 def generate_3d_physics_puzzle():
     back_char = get_backchar()
     piece = get_char()
-    side_length = random.randint(3,5)
+    side_length = random.randint(3,6)
     final_pos = side_length-1
     x_vel = random.randint(-1,1) 
     y_vel = random.randint(-1,1) 
