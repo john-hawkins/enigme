@@ -22,21 +22,19 @@ and machine performance on these tasks.
 
 
 ## Citations
-
-```bibtex
-@article{hawkins:2025,
- author = {John Hawkins},
- year = {2025},
- month = {08},
- title = {Reasoning Bounds for Transformer Decoder Language Models},
-}
-```
+ 
+This package is being presented at the [ICEAST conference in May 2025](https://iceast.kmitl.ac.th/2025/)
 
 ```bibtex
 @article{hawkins:2025,
   author = {John Hawkins},
   title = {Enigme: Generative Text Puzzles for Evaluating Reasoning in Language Models}
+  booktitle = {2025 11th International Conference on Engineering, Applied Sciences, and Technology (ICEAST)}
   year = {2025},
-  month = {02},
+  month = {05},
 }
 ```
+
+Additional work on analysis to follow, watch this space.
+
+
